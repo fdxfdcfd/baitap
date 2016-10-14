@@ -1,0 +1,66 @@
+<div id="w">
+	<h1 class="tieude">Gửi tin nhắn</h1>
+<form id="contactform" name="contact" method="post" action="#" >
+  <p class="note"><span class="req">*</span> bắt buộc hố hố</p>
+  <span style="color: red;" *ngFor="let error of errors">{{error}}<br></span>
+  <div class="row">
+    <label for="name">Tên <span class="req">*</span></label>
+    <input #ten type="text" name="name" id="name" class="txt" tabindex="1" placeholder="điền tên vào" required>
+  </div>
+   
+  <div class="row">
+    <label for="email">E-mail<span class="req">*</span></label>
+    <input #email type="email" name="email" id="email" class="txt" tabindex="2" placeholder="điền í mèo vào" required>
+  </div>
+   
+  <div class="row">
+    <label for="subject">Tiêu đề <span class="req">*</span></label>
+    <input #tieude type="text" name="subject" id="subject" class="txt" tabindex="3" placeholder="chỗ lày điền tiêu đề vào" required>
+  </div>
+   
+  <div class="row">
+    <label for="message">Tin nhắn <span class="req">*</span></label>
+    <textarea #noidung name="message" id="message" class="txtarea" tabindex="4" required></textarea>
+  </div>
+   
+  <div class="center">
+    <input type="button" (click)="themmang(ten.value, email.value, tieude.value,noidung.value)" id="submitbtn" name="submitbtn" tabindex="5" value="Gửi tin nhắn">
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <h2>Tin nhắn</h2>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr >
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Email</th>
+        <th>Tiêu đè</th>
+        <th>Tin nhắn</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of mangluu" > 
+        <td>{{item.id}}</td>
+        <td>{{item.ten}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.tieude}}</td>
+        <td>{{item.noidung}}</td>
+        <td><button (click)="edit(item)">sửa</button><button (click)="delete(item)">xóa</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
